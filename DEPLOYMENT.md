@@ -60,7 +60,6 @@
 - ✅ Professional project showcase
 - ✅ Contact form
 - ✅ SEO optimized
-- 🎌 Hidden anime mode (easter egg)
 
 ## Live Examples
 - **Personal Domain**: `yourname.com`

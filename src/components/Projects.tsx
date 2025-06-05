@@ -1,7 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiExternalLink, FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { useTheme } from './theme-provider';
 
 const projects = [
   {
@@ -72,7 +71,6 @@ const projects = [
 
 const Projects = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const { theme } = useTheme();
 
   const toggleProject = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

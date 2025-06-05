@@ -1,10 +1,8 @@
-import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi';
-import { useTheme } from './theme-provider';
 
 const Contact = () => {
-  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

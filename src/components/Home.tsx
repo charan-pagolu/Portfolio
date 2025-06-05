@@ -1,8 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiArrowUpRight, FiGithub, FiLinkedin } from 'react-icons/fi';
-import { useTheme } from './theme-provider';
+import { useRef, useEffect, useState } from 'react';
 
 const taglines = [
   'AI Engineer',
@@ -18,7 +17,6 @@ const Home = () => {
   const [taglineIndex, setTaglineIndex] = useState(0);
   const [displayedTagline, setDisplayedTagline] = useState('');
   const [typing, setTyping] = useState(true);
-  const { theme } = useTheme();
 
   // Typewriter effect for tagline
   useEffect(() => {

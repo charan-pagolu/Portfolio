@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiCalendar, FiMapPin, FiArrowUpRight } from 'react-icons/fi';
-import { useRef, useEffect, useState } from 'react';
-import { useTheme } from './theme-provider';
+import { useEffect, useState } from 'react';
 
 const education = [
   {
@@ -89,7 +88,6 @@ const funFacts = [
 ];
 
 const About = () => {
-  const { theme } = useTheme();
   const [factIdx, setFactIdx] = useState(0);
   
   useEffect(() => {
