@@ -85,16 +85,6 @@ const Navbar = () => {
           {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center gap-4">
             <button
-              onClick={() => setTheme(theme === 'anime' ? 'dark' : 'anime')}
-              className={`p-2 transition-colors ${theme === 'anime' ? 'text-pink-500' : 'text-muted-foreground hover:text-pink-500'}`}
-              aria-label="Toggle Anime Mode"
-              title="Toggle Anime Mode"
-            >
-              <span role="img" aria-label="anime sparkle" style={{ fontSize: 22 }}>
-                ✨
-              </span>
-            </button>
-            <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Toggle theme"
