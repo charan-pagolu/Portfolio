@@ -5,39 +5,12 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import { ThemeProvider, useTheme } from './components/theme-provider';
+import { ThemeProvider } from './components/theme-provider';
 import "@fontsource/inter";
-import { useState, useEffect } from 'react';
-import AnimeRouter from './anime/AnimeRouter';
 
 const App = () => {
   const location = useLocation();
-  const [easterEgg, setEasterEgg] = useState(false);
-  const { theme } = useTheme();
 
-  if (theme === 'anime') {
-    return <AnimeRouter />;
-  }
-
-  useEffect(() => {
-    const code = [38,38,40,40,37,39,37,39,66,65];
-    let pos = 0;
-    function handler(e) {
-      if (e.keyCode === code[pos]) {
-        pos++;
-        if (pos === code.length) {
-          setEasterEgg(true);
-          setTimeout(() => setEasterEgg(false), 3500);
-          pos = 0;
-        }
-      } else {
-        pos = 0;
-      }
-    }
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, []);
-  
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="min-h-screen relative text-foreground">
@@ -54,6 +27,22 @@ const App = () => {
             <text x="8" y="28" fontFamily="'Neue Montreal',sans-serif" fontSize="12" fill="currentColor">Charan</text>
           </svg>
         </div>
+        
+        <Navbar />
+        <main>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </AnimatePresence>
+        </main>
+      </div>
+    </ThemeProvider>
+  );
+};
         {easterEgg && (
           <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center">
             <div className="bg-primary text-background px-6 py-3 rounded-xl shadow-lg font-bold text-lg animate-bounce">Konami Unlocked! 🚀</div>
